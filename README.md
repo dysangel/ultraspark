@@ -35,8 +35,9 @@ hook).
 
 ## Quickstart
 
-1. **Build the decode side** — the llama.cpp fork, branch `ultraspark2`
-   (linked in the table above; it's one commit on top of upstream):
+1. **Build the decode side** — clone the forked llama.cpp repo
+   ([dysangel/llama.cpp](https://github.com/dysangel/llama.cpp), branch
+   `ultraspark2` — one commit on top of upstream):
 
    ```sh
    git clone -b ultraspark2 https://github.com/dysangel/llama.cpp
