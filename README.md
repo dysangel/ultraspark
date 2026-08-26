@@ -27,7 +27,7 @@ generation — no re-prefill, no re-reading gigabytes of prompt.
 | Repo | What |
 |---|---|
 | **this repo** | The vLLM-side connectors, the kvbridge toolkit (dump / convert / merge / verify / restore), e2e demos and tests |
-| [`dysangel/llama.cpp` · branch `ultraspark2`](https://github.com/dysangel/llama.cpp/tree/ultraspark2) | The llama.cpp fork: server-side snapshot/restore hooks + `uspk-manager` — start there for **build & run** instructions ([ULTRASPARK.md](../llama.cpp/blob/ultraspark2/ULTRASPARK.md)) |
+| [`dysangel/llama.cpp`](https://github.com/dysangel/llama.cpp) (branch **`ultraspark2`**) | The llama.cpp **fork**: server-side snapshot/restore hooks + `uspk-manager` — one commit on top of upstream |
 
 No vLLM fork is needed — the connectors are plain Python modules loaded
 by stock vLLM through `--kv-transfer-config` (the `KVConnectorBase_V1`
@@ -35,8 +35,15 @@ hook).
 
 ## Quickstart
 
-1. **Build the decode side** — clone the llama.cpp fork, check out
-   `ultraspark2`, follow
+1. **Build the decode side** — the llama.cpp fork, branch `ultraspark2`
+   (linked in the table above; it's one commit on top of upstream):
+
+   ```sh
+   git clone -b ultraspark2 https://github.com/dysangel/llama.cpp
+   cd llama.cpp   # then follow ULTRASPARK.md
+   ```
+
+   Full walkthrough:
    [ULTRASPARK.md](https://github.com/dysangel/llama.cpp/blob/ultraspark2/ULTRASPARK.md).
 2. **Run the prefill side** — stock vLLM plus one of the connectors:
 
