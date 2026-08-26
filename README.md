@@ -69,8 +69,9 @@ hook).
 
 ## Design rules
 
-- **Never silently wrong**: every restore is verified against a content
-  fingerprint of the prompt; blobs that don't match are rejected.
+- **Fail loudly**: when something can't be verified, it errors instead of
+  guessing. Every restore is checked against a content fingerprint of the
+  prompt — blobs that don't match are rejected, not applied hopefully.
 - **Bit-exactness gates**: the first token after a cross-engine restore is
   checked against reference logits before decode continues.
 - **Stock vLLM, additive llama.cpp**: the fork keeps every change inside
