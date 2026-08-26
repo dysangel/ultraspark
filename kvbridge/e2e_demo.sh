@@ -37,9 +37,9 @@ MAC_GGUF="$HOME/models/qwen35-4b-bf16.gguf"
 LC="$HOME/Projects/llama.cpp-ultraspark2"
 SERVER="$LC/build-metal/bin/llama-server"
 STATE_DUMP="$HOME/Projects/ultraspark2/kvbridge/state_dump"
-SPARK_HOST=<prefill-host>
+SPARK_HOST="${SPARK_HOST:-<prefill-host>}"  # env-overridable
 SPARK_STREAM_PORT=52901          # WIRE.md default
-PORT=5566
+PORT="${PORT:-5566}"
 
 [[ -f "$MAC_GGUF" ]]  || { echo "missing model: $MAC_GGUF" >&2; exit 1; }
 [[ -x "$SERVER" ]]    || { echo "missing server: $SERVER" >&2; exit 1; }

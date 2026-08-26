@@ -27,7 +27,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-SPARK_HOST=<prefill-host>
+SPARK_HOST="${SPARK_HOST:-<prefill-host>}"  # env-overridable
 VLLM_URL="http://$SPARK_HOST:8081"
 DECODE_PORT=5567
 MGR_PORT=8899
